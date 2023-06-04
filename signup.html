@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="stylesignup.css">
+  <script>
+    function validateSignup() {
+      var name = document.getElementById("signupName").value;
+      var email = document.getElementById("signupEmail").value;
+      var password = document.getElementById("signupPassword").value;
+      var confirmPassword = document.getElementById("signupConfirmPassword").value;
+
+      if (name === "") {
+        alert("Please enter your name.");
+        return false;
+      }
+
+      if (email === "") {
+        alert("Please enter your email address.");
+        return false;
+      }
+
+      if (password === "") {
+        alert("Please enter a password.");
+        return false;
+      }
+
+      if (confirmPassword === "") {
+        alert("Please confirm your password.");
+        return false;
+      }
+
+      // Check if email is valid
+      var emailRegex = /^\S+@\S+\.\S+$/;
+      if (!email.match(emailRegex)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      // Check if password meets your criteria (e.g., length, complexity)
+      if (password.length < 8) {
+        alert("Please enter a password with at least 8 characters.");
+        return false;
+      }
+
+      // Check if password and confirm password match
+      if (password !== confirmPassword) {
+        alert("Password and confirm password do not match.");
+        return false;
+      }
+
+      // Perform signup logic here
+      // Redirect to the login page on successful signup
+      window.location.href = "login.html";
+    }
+  </script>
+</head>
+<body>
+  <h2>Signup Page</h2>
+  <form>
+    <label for="signupName">Name:</label>
+    <input type="text" id="signupName" required><br>
+
+    <label for="signupEmail">Email:</label>
+    <input type="email" id="signupEmail" required><br>
+
+    <label for="signupPassword">Password:</label>
+    <input type="password" id="signupPassword" required><br>
+
+    <label for="signupConfirmPassword">Confirm Password:</label>
+    <input type="password" id="signupConfirmPassword" required><br>
+
+    <input type="button" value="Signup" onclick="validateSignup()">
+  </form>
+</body>
+</html>
+
+
+   
+
+
